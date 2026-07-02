@@ -1,0 +1,155 @@
+{
+  "project_name": "RN Business Management Consulting",
+  "theme": "Light",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) + Luxury Accents",
+  "design_philosophy": "Credible, no-nonsense, and engineered. The site bridges military PM discipline with real estate portfolio building. Visuals must be authoritative, clean, and results-focused. High contrast between deep navy and off-white creates a premium, high-end consulting feel.",
+  "colors": {
+    "primary": {
+      "name": "Deep Navy",
+      "hex": "#0A1628",
+      "usage": "Hero section backgrounds, primary text, prominent headings, solid footer background."
+    },
+    "accent": {
+      "name": "Gold / Champagne",
+      "hex": "#C9A84C",
+      "usage": "Primary CTAs, subtle border highlights, icons, hover states, selection highlights."
+    },
+    "background": {
+      "name": "Off-White",
+      "hex": "#F5F5F0",
+      "usage": "Global page background (except Hero/Footer), card backgrounds, section dividers."
+    },
+    "surface": {
+      "name": "Soft White",
+      "hex": "#FFFFFF",
+      "usage": "Elevated cards on off-white backgrounds, input fields, dropdowns."
+    },
+    "border": {
+      "name": "Navy Light",
+      "hex": "#0A162820",
+      "usage": "Grid borders, card strokes, subtle dividers."
+    }
+  },
+  "typography": {
+    "headings": {
+      "family": "Montserrat",
+      "weights": ["400", "600", "800"],
+      "classes": "font-sans tracking-tight text-[#0A1628]",
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-none",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight",
+      "h3": "text-2xl sm:text-3xl font-semibold leading-snug",
+      "h4": "text-xl font-medium leading-snug"
+    },
+    "body": {
+      "family": "Inter",
+      "weights": ["400", "500"],
+      "classes": "font-sans text-base sm:text-lg leading-relaxed text-[#0A1628]/80"
+    },
+    "labels": {
+      "classes": "text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase text-[#C9A84C]"
+    }
+  },
+  "layout_spacing": {
+    "container": "max-w-7xl mx-auto px-6 sm:px-8 lg:px-12",
+    "section_padding": "py-20 sm:py-32",
+    "card_padding": "p-8 sm:p-12",
+    "grid_gap": "gap-8 lg:gap-12",
+    "bento_strategy": "Use asymmetric grid for Services (e.g., Premium Retainer takes 2 columns, others take 1) to create visual tension and hierarchy.",
+    "alignment": "Left-align dense text and paragraphs. Headings can be left-aligned or centered based on layout balance (e.g., Center for Hero, Left for About)."
+  },
+  "components_strategy": {
+    "header": {
+      "style": "Crystal Glassmorphism",
+      "classes": "sticky top-0 z-50 backdrop-blur-xl bg-[#F5F5F0]/80 border-b border-[#0A1628]/10"
+    },
+    "buttons": {
+      "primary": "bg-[#C9A84C] text-[#0A1628] font-semibold px-8 py-4 rounded-none hover:bg-[#b09240] transition-colors border-2 border-[#C9A84C]",
+      "secondary": "bg-transparent text-[#0A1628] font-semibold px-8 py-4 rounded-none border-2 border-[#0A1628] hover:bg-[#0A1628] hover:text-[#F5F5F0] transition-colors",
+      "dark_mode_primary": "bg-[#C9A84C] text-[#0A1628] font-semibold px-8 py-4 rounded-none hover:bg-[#F5F5F0] transition-colors"
+    },
+    "cards": {
+      "style": "Technical Grid / Neumorphism",
+      "classes": "bg-[#FFFFFF] border border-[#0A1628]/10 rounded-none shadow-sm hover:shadow-lg transition-shadow duration-300 relative group overflow-hidden"
+    },
+    "forms": {
+      "style": "Minimalist High-Contrast",
+      "inputs": "bg-transparent border-b-2 border-[#0A1628]/20 rounded-none px-0 py-3 text-lg focus:border-[#C9A84C] focus:ring-0 transition-colors placeholder-[#0A1628]/40"
+    }
+  },
+  "interactive_motion": {
+    "scroll": "Use Lenis for smooth momentum scrolling.",
+    "hover_states": "Buttons translate-y-[-2px]. Cards get subtle lift and border color shift to Gold. Nav links get an underline expansion.",
+    "entrances": "Fade in and slide up (translate-y-4) for sections as they enter viewport.",
+    "accessibility": "Respect prefers-reduced-motion. Ensure hover states exceed 4.5:1 contrast."
+  },
+  "pages_structure": {
+    "global": "Single Page Application (SPA) with smooth anchor scrolling to sections.",
+    "navigation": "Home, About, Services, Financial Clarity Tool, Contact",
+    "sections": [
+      {
+        "id": "hero",
+        "description": "Deep Navy background. Strong left-aligned typography. Headline: 'Your Real Estate Portfolio, Built with Military Precision'. Gold primary CTA.",
+        "assets": ["https://images.unsplash.com/photo-1706164971309-fb4785fe6ceb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjByZWFsJTIwZXN0YXRlJTIwaG91c2UlMjBleHRlcmlvciUyMGR1c2t8ZW58MHx8fHwxNzgyMjQ5NDg2fDA&ixlib=rb-4.1.0&q=85"]
+      },
+      {
+        "id": "about",
+        "description": "Off-white background. Rafael's story (17 years Army Engineering, real estate since 2013). Use a split layout: portrait image on one side, text on the other.",
+        "assets": ["https://images.pexels.com/photos/10041264/pexels-photo-10041264.jpeg"]
+      },
+      {
+        "id": "services",
+        "description": "Bento-style grid. 1. Tools & Templates (low-ticket). 2. Done-For-You Packages (mid-tier). 3. Consulting Retainer (premium). High visual distinction for the Retainer tier."
+      },
+      {
+        "id": "financial-clarity-tool",
+        "description": "Dedicated section. Headline: 'Know Your Number'. Focus on the one clean monthly net value. Includes a waitlist form.",
+        "assets": ["https://images.pexels.com/photos/7109243/pexels-photo-7109243.jpeg"]
+      },
+      {
+        "id": "coming-soon",
+        "description": "Content Hub teaser. Two side-by-side dark cards: 'Everyday Estate Podcast' and 'The Blog'. Minimal, sleek, email capture forms for notifications."
+      },
+      {
+        "id": "contact",
+        "description": "Simple form (Name, Email, 'What are you working on?'). Submits directly via API, saved to MongoDB. No third-party tools."
+      }
+    ],
+    "footer": "Deep Navy background. Brief bio blurb, social links, email, and tagline."
+  },
+  "admin_dashboard": {
+    "description": "A secure (/admin) route to view contact submissions and waitlist signups stored in MongoDB.",
+    "style": "Utilitarian, high-contrast, data-dense table layout using Shadcn UI table components."
+  },
+  "media_assets": [
+    {
+      "category": "hero_background",
+      "url": "https://images.unsplash.com/photo-1706164971309-fb4785fe6ceb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjByZWFsJTIwZXN0YXRlJTIwaG91c2UlMjBleHRlcmlvciUyMGR1c2t8ZW58MHx8fHwxNzgyMjQ5NDg2fDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Modern high-end residential exterior dusk",
+      "instructions": "Use with a heavy Deep Navy (bg-[#0A1628]/80) overlay to ensure text readability."
+    },
+    {
+      "category": "consultant_portrait",
+      "url": "https://images.pexels.com/photos/10041264/pexels-photo-10041264.jpeg",
+      "alt": "Professional businessman portrait",
+      "instructions": "Use in the About section. Apply a subtle grayscale filter with a gold hover effect to match the engineered, precise brand tone."
+    },
+    {
+      "category": "tool_mockup",
+      "url": "https://images.pexels.com/photos/7109243/pexels-photo-7109243.jpeg",
+      "alt": "Financial analytics dashboard",
+      "instructions": "Use in the Financial Clarity Tool section to visualize data mastery."
+    }
+  ],
+  "icons": "Use 'lucide-react' for sharp, clean geometric icons. Set stroke-width to 1.5 for a sophisticated look.",
+  "testing_guidelines": {
+    "data_testids": "All interactive elements, forms, links, and buttons MUST have a descriptive 'data-testid' attribute (e.g., 'data-testid=\"hero-cta-button\"', 'data-testid=\"contact-form-submit\"')."
+  },
+  "instructions_to_main_agent": [
+    "Install and use Lenis for smooth scrolling.",
+    "Implement Shadcn UI for forms, inputs, and tables (especially for the Admin Dashboard).",
+    "Build standard sections purely with Tailwind and HTML for custom layouts.",
+    "Do NOT use Inter for headings; strictly use Montserrat for headings and Inter for body.",
+    "Implement MongoDB connection for the contact form and waitlist.",
+    "Ensure the hero image has a sufficient dark overlay to contrast with white/gold text."
+  ]
+}

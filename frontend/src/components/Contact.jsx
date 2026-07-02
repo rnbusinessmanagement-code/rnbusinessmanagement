@@ -56,7 +56,7 @@ export const Contact = () => {
             <div className="border-t border-white/10 pt-8 mt-8 space-y-4">
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#C9A84C]" />
-                <span className="text-sm font-semibold text-white">rnbusinessmanagement@gmail.com</span>
+                <span className="text-sm font-semibold text-white">contact@rnbusinessmanagement.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <MessageSquare className="w-5 h-5 text-[#C9A84C]" />

@@ -27,11 +27,11 @@ export const Footer = () => {
           <div className="space-y-4 md:text-right">
             <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 block">DIRECT INQUIRIES</span>
             <a 
-              href="mailto:rnbusinessmanagement@gmail.com" 
+              href="mailto:contact@rnbusinessmanagement.com" 
               className="text-lg font-semibold hover:text-[#C9A84C] transition-colors text-white block"
               data-testid="footer-email-link"
             >
-              rnbusinessmanagement@gmail.com
+              contact@rnbusinessmanagement.com
             </a>
           </div>
 

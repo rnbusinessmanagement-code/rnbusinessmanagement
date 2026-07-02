@@ -36,7 +36,7 @@ JWT_ALGORITHM = "HS256"
 app = FastAPI()
 
 # Setup CORS Origins from environment
-cors_origins = os.environ.get("CORS_ORIGINS", "*").split(",")
+cors_origins = [o.strip() for o in os.environ.get("CORS_ORIGINS", "*").split(",")]
 
 app.add_middleware(
     CORSMiddleware,

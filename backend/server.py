@@ -35,30 +35,8 @@ JWT_ALGORITHM = "HS256"
 # Create the main app
 app = FastAPI()
 
-# Setup CORS Origins
-cors_origins = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "https://rn-capital.preview.emergentagent.com",
-]
-
-# Read from frontend .env if possible to get dynamic preview URL
-frontend_env = ROOT_DIR.parent / "frontend" / ".env"
-if frontend_env.exists():
-    try:
-        with open(frontend_env) as f:
-            for line in f:
-                if "REACT_APP_BACKEND_URL" in line:
-                    parts = line.strip().split("=")
-                    if len(parts) > 1:
-                        url = parts[1].strip()
-                        if url and url not in cors_origins:
-                            cors_origins.append(url)
-                            # Also add origin without trailing /
-                            if url.endswith("/"):
-                                cors_origins.append(url[:-1])
-    except Exception as e:
-        logger.error(f"Error loading frontend .env: {e}")
+# Setup CORS Origins from environment
+cors_origins = os.environ.get("CORS_ORIGINS", "*").split(",")
 
 app.add_middleware(
     CORSMiddleware,

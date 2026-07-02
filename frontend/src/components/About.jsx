@@ -13,9 +13,9 @@ export const About = () => {
             <div className="absolute -inset-4 border border-[#C9A84C]/30 bg-transparent pointer-events-none translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300"></div>
             <div className="absolute inset-0 bg-[#0A1628]/25 mix-blend-color group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
             <img
-              src="https://images.pexels.com/photos/10041264/pexels-photo-10041264.jpeg"
+              src="/rafael-sunglasses.jpg"
               alt="Rafael Norat - Principal Consultant"
-              className="w-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 border border-[#0A1628]/10 shadow-lg relative z-0 aspect-[4/5]"
+              className="w-full object-cover transition-all duration-500 border border-[#0A1628]/10 shadow-lg relative z-0 aspect-[4/5]"
               data-testid="about-portrait"
             />
             {/* Badge overlay */}

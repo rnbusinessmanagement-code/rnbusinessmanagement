@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Mail, MessageSquare, ArrowRight } from "lucide-react";
 
 export const Contact = () => {
@@ -9,6 +8,11 @@ export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const encode = (data) =>
+    Object.keys(data)
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,17 +24,17 @@ export const Contact = () => {
     setLoading(true);
     setError("");
     try {
-      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
-        name,
-        email,
-        what_are_you_working_on: message
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", name, email, message }),
       });
       setSubmitted(true);
       setName("");
       setEmail("");
       setMessage("");
     } catch (err) {
-      setError(err.response?.data?.detail || "Something went wrong. Please try again.");
+      setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -79,11 +83,13 @@ export const Contact = () => {
                 Your operational details have been sent to Rafael. Expect a response directly in your inbox.
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-6">
+                <input type="hidden" name="form-name" value="contact" />
                 <div className="space-y-1">
                   <label className="text-[10px] uppercase font-bold tracking-widest text-[#0A1628]/60 block">Your Name</label>
                   <input
                     type="text"
+                    name="name"
                     required
                     placeholder="e.g. David Vance"
                     value={name}
@@ -97,6 +103,7 @@ export const Contact = () => {
                   <label className="text-[10px] uppercase font-bold tracking-widest text-[#0A1628]/60 block">Professional Email</label>
                   <input
                     type="email"
+                    name="email"
                     required
                     placeholder="e.g. david@vanceholdings.com"
                     value={email}
@@ -109,6 +116,7 @@ export const Contact = () => {
                 <div className="space-y-1">
                   <label className="text-[10px] uppercase font-bold tracking-widest text-[#0A1628]/60 block">What are you working on?</label>
                   <textarea
+                    name="message"
                     required
                     rows="4"
                     placeholder="Briefly describe your current portfolio size, goals, or operational friction points..."

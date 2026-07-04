@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Plus, Trash2, ShieldCheck, Landmark } from "lucide-react";
 
 export const FinancialClarity = () => {
@@ -18,6 +17,11 @@ export const FinancialClarity = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const encode = (data) =>
+    Object.keys(data)
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
 
   // Add property to calculator
   const handleAddProperty = (e) => {
@@ -63,18 +67,21 @@ export const FinancialClarity = () => {
     setLoading(true);
     setError("");
     try {
-      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/waitlist`, {
-        name: waitlistName,
-        email: waitlistEmail,
-        source: "financial-clarity-tool"
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "waitlist",
+          name: waitlistName,
+          email: waitlistEmail,
+          source: "financial-clarity-tool"
+        })
       });
       setSubmitted(true);
       setWaitlistName("");
       setWaitlistEmail("");
     } catch (err) {
-      setError(
-        err.response?.data?.detail || "Something went wrong. Please try again."
-      );
+      setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -115,11 +122,13 @@ export const FinancialClarity = () => {
                   Success! You have been successfully added to the Financial Clarity waitlist.
                 </div>
               ) : (
-                <form onSubmit={handleWaitlistSignup} className="space-y-4">
+                <form name="waitlist" method="POST" data-netlify="true" onSubmit={handleWaitlistSignup} className="space-y-4">
+                  <input type="hidden" name="form-name" value="waitlist" />
                   <div className="space-y-1">
                     <label className="text-[10px] uppercase font-bold tracking-widest text-[#0A1628]/60">Name</label>
                     <input
                       type="text"
+                      name="name"
                       placeholder="e.g. John Doe"
                       value={waitlistName}
                       onChange={(e) => setWaitlistName(e.target.value)}
@@ -131,6 +140,7 @@ export const FinancialClarity = () => {
                     <label className="text-[10px] uppercase font-bold tracking-widest text-[#0A1628]/60">Email *</label>
                     <input
                       type="email"
+                      name="email"
                       required
                       placeholder="e.g. john@example.com"
                       value={waitlistEmail}
